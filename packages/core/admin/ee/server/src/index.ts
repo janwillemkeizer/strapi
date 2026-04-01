@@ -54,7 +54,7 @@ const getAdminEE = () => {
 
       // Register internal ai service
       if (isAIEnabled) {
-        strapi.add('ai.admin', () => createAIAdminService({ strapi }));
+        strapi.add('ai.admin', createAIAdminService({ strapi }));
       }
 
       if (isAuditLogsEnabled) {

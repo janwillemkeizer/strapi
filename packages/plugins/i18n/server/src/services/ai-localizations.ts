@@ -273,8 +273,8 @@ const createAILocalizationsService = ({ strapi }: { strapi: Core.Strapi }) => {
 
       let token: string;
       try {
-        const tokenData = await strapi.get('ai.admin').getAiToken();
-        token = tokenData.token;
+        const tokenData = await strapi.get('ai').admin?.getAiToken();
+        token = tokenData !== undefined ? tokenData.token : '';
       } catch (error) {
         await aiLocalizationJobsService.upsertJobForDocument({
           documentId,
